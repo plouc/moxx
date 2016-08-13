@@ -21,7 +21,8 @@
     "joi": "9.0.4",
     "js-yaml": "3.6.1",
     "lodash": "4.15.0",
-    "minimatch": "3.0.3"
+    "minimatch": "3.0.3",
+    "winston": "2.2.0"
   },
   "devDependencies": {
     "ava": "0.16.0",
