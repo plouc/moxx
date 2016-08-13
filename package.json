@@ -1,0 +1,35 @@
+{
+  "name": "moxx",
+  "version": "0.1.6",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon bin/moxx -- --dir examples --watch",
+    "test": "nyc --all ava --verbose",
+    "test-no-cover": "ava --verbose",
+    "cover-report": "nyc report --reporter=lcov"
+  },
+  "author": "Raphaël Benitte (https://github.com/plouc)",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "1.6.0",
+    "columnify": "1.5.4",
+    "commander": "2.9.0",
+    "glob": "7.0.5",
+    "http-proxy": "1.14.0",
+    "joi": "9.0.4",
+    "js-yaml": "3.6.1",
+    "lodash": "4.14.2",
+    "minimatch": "3.0.3"
+  },
+  "devDependencies": {
+    "ava": "0.16.0",
+    "coveralls": "2.11.12",
+    "nodemon": "1.10.0",
+    "nyc": "7.1.0"
+  },
+  "bin": {
+    "moxx": "./bin/moxx"
+  },
+  "nyc": {}
+}
