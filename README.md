@@ -15,7 +15,7 @@ No more failed tests because of fragile dependencies.
 
 - yaml based configuration
 - Watch mappings for auto reload
-- Powerful request matching
+- [Powerful request matching](https://github.com/plouc/moxx#request-matching)
 - Record API calls for mock generation
 
 ## Requirements
@@ -47,6 +47,41 @@ moxx
 | `-j, --journal`         | false   | Save incoming request with no match
 | `-x, --proxy <proxy>`   |         | Act as a proxy
 | `--no-color`            | false   | Disable color
+
+## Request matching
+
+moxx provides a powerful request matching.
+
+## Matching http method
+
+```yaml
+# match GET method
+- request:
+    method: GET
+    
+# match all methods
+- request:
+    method: '*'
+```
+
+## Matching url
+
+Internally, moxx uses [minimatch](https://github.com/isaacs/minimatch).
+
+```yaml
+# match /users
+- request:
+    url: /users
+
+# match /users/2
+- request:
+    url: /users/*
+    
+# match /users/2/profile
+- request:
+    url: /users/**    
+```
+
 
 [license-image]: https://img.shields.io/github/license/plouc/moxx.svg?style=flat-square
 [license-url]: https://github.com/plouc/moxx/blob/master/LICENSE.md
