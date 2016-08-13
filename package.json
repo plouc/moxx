@@ -7,7 +7,8 @@
     "start": "nodemon bin/moxx -- --dir examples --watch",
     "test": "nyc --all ava --verbose",
     "test-no-cover": "ava --verbose",
-    "cover-report": "nyc report --reporter=lcov"
+    "cover-report": "nyc report --reporter=lcov",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Raphaël Benitte (https://github.com/plouc)",
   "license": "MIT",
