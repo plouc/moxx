@@ -14,9 +14,9 @@ No more failed tests because of fragile dependencies.
 ## Features
 
 - yaml based configuration
-- [Watch mappings for auto reload](https://github.com/plouc/moxx#watching-changes-on-mappings)
-- [Powerful request matching](https://github.com/plouc/moxx#request-matching)
-- [Record API calls for mock generation](https://github.com/plouc/moxx#recording)
+- [Watch mappings for auto reload](#watching-changes-on-mappings)
+- [Powerful request matching](#request-matching)
+- [Record API calls for mock generation](#recording)
 
 ## Requirements
 
