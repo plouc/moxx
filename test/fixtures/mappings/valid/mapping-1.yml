@@ -1,0 +1,4 @@
+mapping-1:
+  request:  {}
+  response:
+    body: mapping-1
