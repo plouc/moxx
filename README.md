@@ -61,7 +61,7 @@ and responses, the `files` directory contains files to be used as response body.
 The `mappings` files are loaded in memory whereas the `files` are loaded when required and not cached,
 it means if you modify a mapping file, the change you make won't be available immediately,
 if you want this you should consider using the [watch option](#watching-changes-on-mappings).
-If you change the content of a file or add one in the `files` directory, it will be available without restart or watch option.
+If you change the content of a file or add one in the `files` directory, it will be available without restart or requiring the watch option.
 
 ### Mapping file
 
@@ -103,7 +103,11 @@ moxx --watch
 
 moxx provides a powerful request matching.
 
-## Matching http method
+- [matching method](#matching-http-method)
+- [mathing url](#matching-url)
+- [scoring](#scoring)
+
+### Matching http method
 
 ```yaml
 # match GET method
@@ -117,7 +121,7 @@ method_any:
     method: '*'
 ```
 
-## Matching url
+### Matching url
 
 Internally, moxx uses [minimatch](https://github.com/isaacs/minimatch).
 
@@ -137,6 +141,43 @@ user_2_profile:
   request:
     url: /users/**    
 ```
+
+### Scoring
+
+moxx implements a scoring system to match requests, each rule you define increment the score of a mapping,
+in the end the response whose request has the highest score will be sent.
+ 
+```yaml
+# this entry will be eligible but will always have a score of 0 because no rule is defined
+default:
+  request:  {}
+  response:
+    status: 200
+    body:   moxx
+
+# this entry will have a score of 1 if the incoming request is a GET request    
+get_method:
+  request:
+    method: GET
+  response:
+    status: 200
+    body:   moxx GET request
+    
+# this entry will have a score of 2 if the incoming request is a GET request and the url is /users
+get_users:
+  request:
+    method: GET
+    url:    /users
+  response:
+    status: 200
+    body:   moxx GET users request
+```
+
+given this mapping:
+
+* `HEAD /` will use `default` response (score: 0)
+* `GET /` will use `get_method` response (score: 1)
+* `GET /users` will use `get_get_users` response (score: 2)
 
 ## Proxying
 
