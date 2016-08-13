@@ -9,8 +9,10 @@ const logger    = require('../lib/logger')
 
 const coerceToInt = value => parseInt(value, 10)
 
+const version = package.version || '@dev'
+
 program
-    .version(package.version)
+    .version(version)
     .option('-p, --port <port>', 'The port number for the server to listen on', coerceToInt, 5000)
     .option('-d, --dir <directory>', 'The root config/mapping/files directory, default: .', '.')
     .option('-w --watch', 'Watch for changes')
@@ -28,12 +30,12 @@ const options = {
     proxy:    program.proxy,
     loglevel: program.loglevel,
     name:     package.name,
-    version:  package.version,
+    version,
 }
 
 logger.level = options.loglevel
 
-logger.info(`moxx v${package.version}`)
+logger.info(`moxx v${options.version}`)
 logger.verbose(`config:\n${columnify(options, { showHeaders: false })}`)
 
 

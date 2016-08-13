@@ -15,7 +15,7 @@ No more failed tests because of fragile dependencies.
 
 - yaml based configuration
 - [Watch mappings for auto reload](#watching-changes-on-mappings)
-- [Powerful request matching](#request-matching)
+- [Powerful request matching](#request-matching-system)
 - [Proxying](#proxying)
 - [Record API calls for mock generation](#recording)
 
@@ -64,11 +64,13 @@ moxx provides a powerful request matching.
 
 ```yaml
 # match GET method
-- request:
+method_get:
+  request:
     method: GET
     
 # match all methods
-- request:
+method_any:
+  request:
     method: '*'
 ```
 
@@ -78,15 +80,18 @@ Internally, moxx uses [minimatch](https://github.com/isaacs/minimatch).
 
 ```yaml
 # match /users
-- request:
+users:
+  request:
     url: /users
 
 # match /users/2
-- request:
+user_2:
+  request:
     url: /users/*
     
 # match /users/2/profile
-- request:
+user_2_profile:
+  request:
     url: /users/**    
 ```
 

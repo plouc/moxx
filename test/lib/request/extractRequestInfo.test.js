@@ -14,7 +14,6 @@ test('should returns info about the request', t => {
         {
             method:   'GET',
             url:      '/test/extract/request/info?mock=true&pass=true',
-            pathname: '/test/extract/request/info',
             query:    {
                 mock: 'true',
                 pass: 'true',
