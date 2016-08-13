@@ -105,8 +105,8 @@ moxx --watch
 
 - [matching method](#matching-http-method)
 - [matching url](#matching-url)
-- [matching query](#mathing-query)
-- [matching headers](#mathing-headers)
+- [matching query](#matching-query)
+- [matching headers](#matching-headers)
 - [scoring](#scoring)
 
 ### Matching http method
