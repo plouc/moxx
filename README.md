@@ -15,7 +15,7 @@ No more failed tests because of fragile dependencies.
 
 - yaml based configuration
 - [Watch mappings for auto reload](#watching-changes-on-mappings)
-- [Powerful request matching](#request-matching)
+- [Powerful request matching](#request-matching-system)
 - [Proxying](#proxying)
 - [Record API calls for mock generation](#recording)
 
