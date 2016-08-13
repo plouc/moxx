@@ -243,7 +243,7 @@ given this mapping:
 
 * `HEAD /` will use `default` response (score: 0)
 * `GET /` will use `get_method` response (score: 1)
-* `GET /users` will use `get_get_users` response (score: 2)
+* `GET /users` will use `get_users` response (score: 2)
 
 ## Proxying
 
