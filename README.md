@@ -13,7 +13,7 @@ No more failed tests because of fragile dependencies.
 
 ## Features
 
-- yaml based configuration
+- [yaml based configuration](#configuration)
 - [Watch mappings for auto reload](#watching-changes-on-mappings)
 - [Powerful request matching](#request-matching-system)
 - [Proxying](#proxying)
@@ -49,6 +49,49 @@ moxx
 | `-x, --proxy <proxy>`   |         | Act as a proxy
 | `--no-color`            | false   | Disable color
 | `-l, --loglevel`        | info    | Sets logger log level
+
+## Configuration
+
+moxx requires two directories, `mappings` and `files` to run, if they don't exist, it will create them.
+Those directories should be available under the `dir` option (default to `.`).
+
+The `mappings` directory contains yaml files which define the mapping between incoming requests parameters (method, url, query, headers…)
+and responses, the `files` directory contains files to be used as response body.
+
+The `mappings` files are loaded in memory whereas the `files` are loaded when required and not cached,
+it means if you modify a mapping file, the change you make won't be available immediately,
+if you want this you should consider using the [watch option](#watching-changes-on-mappings).
+If you change the content of a file or add one in the `files` directory, it will be available without restart or watch option.
+
+### Mapping file
+
+The typical structure of a mapping file is:
+
+```yaml
+get_users: # must be unique among all mappings
+  request: # rules for matching
+    method: GET
+    url:    /users
+  response: # response to send on match
+    status: 200
+    body:   hello world
+```
+
+Please, see [request matching](#request-matching-system) for further details on `request` configuration.
+ 
+The `response` configuration accepts several keys:
+
+```yaml
+get_users:
+  # ...
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+    # you cannont use both body and bodyFile  
+    body:     hello world
+    bodyFile: hello-world.txt
+```
 
 ## Watching changes on mappings
 
