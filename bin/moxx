@@ -13,7 +13,7 @@ program
     .option('-p, --port <port>', 'The port number for the server to listen on', coerceToInt, 5000)
     .option('-d, --dir <directory>', 'The root config/mapping/files directory, default: .', '.')
     .option('-w --watch', 'Watch for changes')
-    .option('-j, --journal', 'Save incoming request with no match')
+    .option('-r, --record', 'Records proxy requests/responses, disabled by default')
     .option('-x, --proxy <proxy>', 'Act as a proxy')
     .option('--no-color', 'Disable color')
     .parse(process.argv)
@@ -24,7 +24,7 @@ const options = {
     dir:     program.dir,
     port:    program.port,
     watch:   !!program.watch,
-    journal: !!program.journal,
+    record:  !!program.record,
     proxy:   program.proxy,
     name:    package.name,
     version: package.version,
