@@ -1,8 +1,10 @@
 # moxx
 
+[![NPM version][npm-image]][npm-url]
 [![License][license-image]][license-url]
 [![Travis CI][travis-image]][travis-url]
-[![NPM version][npm-image]][npm-url]
+[![Coverage Status][coverage-image]][coverage-url]
+[![Dependencies][gemnasium-image]][gemnasium-url]
 
 moxx is a tool easily to mock your external APIs.
 No more failed tests because of fragile dependencies.
@@ -52,4 +54,9 @@ moxx
 [npm-url]: https://www.npmjs.com/package/moxx
 [travis-image]: https://img.shields.io/travis/plouc/moxx.svg?style=flat-square
 [travis-url]: https://travis-ci.org/plouc/moxx
+[coverage-image]: https://img.shields.io/coveralls/plouc/moxx.svg?style=flat-square
+[coverage-url]: https://coveralls.io/github/plouc/moxx
+[gemnasium-image]: https://img.shields.io/gemnasium/plouc/moxx.svg?style=flat-square
+[gemnasium-url]: https://gemnasium.com/plouc/moxx
+
 
