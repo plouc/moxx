@@ -1,6 +1,6 @@
-examples
-files
-mappings
-test
-coverage
+/examples
+/files
+/mappings
+/test
+/coverage
 .nyc_output
