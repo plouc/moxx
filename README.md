@@ -44,7 +44,7 @@ moxx
 | `-p, --port <port>`     | 5000    | The port number for the server to listen on
 | `-d, --dir <directory>` | .       | The root config/mapping/files directory
 | `-w --watch`            | false   | Watch for changes
-| `-j, --journal`         | false   | Save incoming request with no match
+| `-r, --record`          | false   | Records proxy requests/responses
 | `-x, --proxy <proxy>`   |         | Act as a proxy
 | `--no-color`            | false   | Disable color
 
