@@ -105,8 +105,8 @@ moxx --watch
 
 - [matching method](#matching-http-method)
 - [matching url](#matching-url)
-- [mathing query](#mathing-query)
-- [mathing headers](#mathing-headers)
+- [matching query](#mathing-query)
+- [matching headers](#mathing-headers)
 - [scoring](#scoring)
 
 ### Matching http method
@@ -146,7 +146,7 @@ user_2_profile:
 
 ### Matching query
 
-Unlike the [method](#matching-http-method)) and [url](#matching-url) matchers,
+Unlike the [method](#matching-http-method) and [url](#matching-url) matchers,
 query matching provides more versatile matchers to ease mock definition.
 
 ```yaml
@@ -176,7 +176,7 @@ get_user_with_username_including_plouc:
 
 ### Matching headers
 
-Unlike the [method](#matching-http-method)) and [url](#matching-url) matchers,
+Unlike the [method](#matching-http-method) and [url](#matching-url) matchers,
 headers matching provides more versatile matchers to ease mock definition.
 
 ```yaml
