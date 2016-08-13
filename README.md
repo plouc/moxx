@@ -14,7 +14,7 @@ No more failed tests because of fragile dependencies.
 ## Features
 
 - yaml based configuration
-- Watch mappings for auto reload
+- [Watch mappings for auto reload](https://github.com/plouc/moxx#watching-changes-on-mappings)
 - [Powerful request matching](https://github.com/plouc/moxx#request-matching)
 - Record API calls for mock generation
 
@@ -48,7 +48,13 @@ moxx
 | `-x, --proxy <proxy>`   |         | Act as a proxy
 | `--no-color`            | false   | Disable color
 
-## Request matching
+## Watching changes on mappings
+
+```sh
+moxx --watch
+```
+
+## Request matching system
 
 moxx provides a powerful request matching.
 
