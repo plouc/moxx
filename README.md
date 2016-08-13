@@ -19,6 +19,10 @@ No more failed tests because of fragile dependencies.
 - [Proxying](#proxying)
 - [Record API calls for mock generation](#recording)
 
+## Disclaimer
+
+This project is heavily inspired by [wiremock](http://wiremock.org/) written in java.
+
 ## Requirements
 
 - Node.js 6+
