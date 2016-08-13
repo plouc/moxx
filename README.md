@@ -16,6 +16,7 @@ No more failed tests because of fragile dependencies.
 - yaml based configuration
 - [Watch mappings for auto reload](#watching-changes-on-mappings)
 - [Powerful request matching](#request-matching)
+- [Proxying](#proxying)
 - [Record API calls for mock generation](#recording)
 
 ## Requirements
@@ -89,10 +90,16 @@ Internally, moxx uses [minimatch](https://github.com/isaacs/minimatch).
     url: /users/**    
 ```
 
+## Proxying
+
+```
+moxx --proxy https://api.github.com
+```
+
 ## Recording
 
 ```
-moxx --record --proxy https://api.github.com
+moxx --proxy https://api.github.com --record
 ```
 
 [license-image]: https://img.shields.io/github/license/plouc/moxx.svg?style=flat-square
