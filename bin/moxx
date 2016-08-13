@@ -4,6 +4,7 @@ const program   = require('commander')
 const columnify = require('columnify')
 const package   = require('../package.json')
 const moxx      = require('../lib/moxx')
+const logger    = require('../lib/logger')
 
 
 const coerceToInt = value => parseInt(value, 10)
@@ -16,20 +17,24 @@ program
     .option('-r, --record', 'Records proxy requests/responses, disabled by default')
     .option('-x, --proxy <proxy>', 'Act as a proxy')
     .option('--no-color', 'Disable color')
+    .option('-l, --loglevel <loglevel>', 'Defines log level, default: info', 'info')
     .parse(process.argv)
 
-console.log(`\nmoxx v${package.version}\n`)
-
 const options = {
-    dir:     program.dir,
-    port:    program.port,
-    watch:   !!program.watch,
-    record:  !!program.record,
-    proxy:   program.proxy,
-    name:    package.name,
-    version: package.version,
+    dir:      program.dir,
+    port:     program.port,
+    watch:    !!program.watch,
+    record:   !!program.record,
+    proxy:    program.proxy,
+    loglevel: program.loglevel,
+    name:     package.name,
+    version:  package.version,
 }
-console.log(`config:\n${columnify(options, { showHeaders: false })}\n`)
+
+logger.level = options.loglevel
+
+logger.info(`moxx v${package.version}`)
+logger.verbose(`config:\n${columnify(options, { showHeaders: false })}`)
 
 
 moxx.start(options)

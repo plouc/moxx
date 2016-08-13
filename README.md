@@ -40,13 +40,14 @@ moxx
 | Option                  | Default | Description |
 |:----------------------- |:-------:|:----------- |
 | `-h, --help`            |         | Output usage information
-| `-v, --version`         |         | Output the version number
+| `-V, --version`         |         | Output the version number
 | `-p, --port <port>`     | 5000    | The port number for the server to listen on
 | `-d, --dir <directory>` | .       | The root config/mapping/files directory
 | `-w --watch`            | false   | Watch for changes
 | `-r, --record`          | false   | Records proxy requests/responses
 | `-x, --proxy <proxy>`   |         | Act as a proxy
 | `--no-color`            | false   | Disable color
+| `-l, --loglevel`        | info    | Sets logger log level
 
 ## Watching changes on mappings
 
