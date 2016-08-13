@@ -1,7 +1,15 @@
 {
   "name": "moxx",
-  "description": "moxx is a tool easily to mock your external APIs",
+  "description": "moxx is a tool to easily mock your external APIs",
   "main": "index.js",
+  "keywords": [
+    "API",
+    "mock",
+    "mocking",
+    "rest",
+    "proxy",
+    "server"
+  ],
   "scripts": {
     "start": "nodemon bin/moxx -- --dir examples --watch",
     "test": "nyc ava --verbose",

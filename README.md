@@ -6,7 +6,7 @@
 [![Coverage Status][coverage-image]][coverage-url]
 [![Dependencies][gemnasium-image]][gemnasium-url]
 
-moxx is a tool easily to mock your external APIs.
+**moxx** is a tool to easily mock your external APIs.
 No more failed tests because of fragile dependencies.
 
 [![NPM](https://nodei.co/npm/moxx.png?downloads=false&downloadRank=false)](https://nodei.co/npm/moxx/)
@@ -15,7 +15,7 @@ No more failed tests because of fragile dependencies.
 
 - [yaml based configuration](#configuration)
 - [Watch mappings for auto reload](#watching-changes-on-mappings)
-- [Powerful request matching](#request-matching-system)
+- [Powerful request matching system](#request-matching-system)
 - [Proxying](#proxying)
 - [Record API calls for mock generation](#recording)
 
@@ -52,7 +52,7 @@ moxx
 
 ## Configuration
 
-moxx requires two directories, `mappings` and `files` to run, if they don't exist, it will create them.
+**moxx** requires two directories, `mappings` and `files` to run, if they don't exist, it will create them.
 Those directories should be available under the `dir` option (default to `.`).
 
 The `mappings` directory contains yaml files which define the mapping between incoming requests parameters (method, url, query, headers…)
@@ -88,7 +88,7 @@ get_users:
     status: 200
     headers:
       Content-Type: application/json
-    # you cannont use both body and bodyFile  
+    # you cannot use both body and bodyFile  
     body:     hello world
     bodyFile: hello-world.txt
 ```
@@ -101,10 +101,12 @@ moxx --watch
 
 ## Request matching system
 
-moxx provides a powerful request matching.
+**moxx** provides a powerful request matching system.
 
 - [matching method](#matching-http-method)
-- [mathing url](#matching-url)
+- [matching url](#matching-url)
+- [mathing query](#mathing-query)
+- [mathing headers](#mathing-headers)
 - [scoring](#scoring)
 
 ### Matching http method
@@ -123,7 +125,7 @@ method_any:
 
 ### Matching url
 
-Internally, moxx uses [minimatch](https://github.com/isaacs/minimatch).
+Internally, **moxx** uses [minimatch](https://github.com/isaacs/minimatch).
 
 ```yaml
 # match /users
@@ -142,9 +144,69 @@ user_2_profile:
     url: /users/**    
 ```
 
+### Matching query
+
+Unlike the [method](#matching-http-method)) and [url](#matching-url) matchers,
+query matching provides more versatile matchers to ease mock definition.
+
+```yaml
+# exists
+get_user_with_id:
+  request:
+    query:
+      id:
+        exists: true
+
+# equals        
+get_user_with_id_2:
+  request:
+    query:
+      id:
+        equals: 2
+      # alternative form
+      id: 2 # defaults to equals matcher
+        
+# includes        
+get_user_with_username_including_plouc:
+  request:
+    query:
+      username:
+        includes: plouc
+```
+
+### Matching headers
+
+Unlike the [method](#matching-http-method)) and [url](#matching-url) matchers,
+headers matching provides more versatile matchers to ease mock definition.
+
+```yaml
+# exists
+get_user_with_x-id:
+  request:
+    headers:
+      x-id:
+        exists: true
+
+# equals        
+get_user_with_x-id_2:
+  request:
+    headers:
+      x-id:
+        equals: 2
+      # alternative form
+      x-id: 2 # defaults to equals matcher
+        
+# includes        
+get_user_with_x-username_including_plouc:
+  request:
+    headers:
+      x-username:
+        includes: plouc
+```
+
 ### Scoring
 
-moxx implements a scoring system to match requests, each rule you define increment the score of a mapping,
+**moxx** implements a scoring system to match requests, each rule you define increment the score of a mapping,
 in the end the response whose request has the highest score will be sent.
  
 ```yaml
