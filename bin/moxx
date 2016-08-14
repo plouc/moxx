@@ -35,8 +35,9 @@ const options = {
 
 logger.level = options.loglevel
 
+process.on('SIGINT', () => { process.exit(0) })
+
 logger.info(`moxx v${options.version}`)
 logger.verbose(`config:\n${columnify(options, { showHeaders: false })}`)
-
 
 moxx.start(options)

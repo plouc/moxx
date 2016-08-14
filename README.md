@@ -257,6 +257,27 @@ moxx --proxy https://api.github.com
 moxx --proxy https://api.github.com --record
 ```
 
+## Docker
+
+### How to use this image
+This image expose env variables to control moxx :
+ * PORT 5000: Moxx port.
+ * MOCKS_DIR /mocks: Mocks directory (mapping and files).
+ * WATCH 1: Watch for mocks directory updates and reload. 0 or 1.
+ * LOG_LEVEL info: Log level.
+ 
+### Launch a moxx container
+Mocks file will be mounted from $PWD/mocks here
+
+```
+docker run -d -v $PWD/mocks:/mocks -p 8080:5000 plouc/moxx
+```
+
+### Launch a moxx container with options
+```
+docker run -d -e WATCH=0 -e LOG_LEVEL=debug -v $PWD/mocks:/mocks -p 8080:5000 plouc/moxx
+```
+
 [license-image]: https://img.shields.io/github/license/plouc/moxx.svg?style=flat-square
 [license-url]: https://github.com/plouc/moxx/blob/master/LICENSE.md
 [npm-image]: https://img.shields.io/npm/v/moxx.svg?style=flat-square
