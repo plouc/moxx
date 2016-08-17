@@ -38,5 +38,12 @@ logger.level = options.loglevel
 logger.info(`moxx v${options.version}`)
 logger.verbose(`config:\n${columnify(options, { showHeaders: false })}`)
 
-
 moxx.start(options)
+
+process.on('SIGINT', () => {
+    moxx.stop()
+})
+
+process.on('SIGTERM', () => {
+    moxx.stop()
+})
