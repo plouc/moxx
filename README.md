@@ -215,6 +215,7 @@ get_user_with_x-username_including_plouc:
 
 - [matching fieldname](#matching-file-fieldname)
 - [matching filename](#matching-file-filename)
+- [matching checksum](#matching-file-checksum)
 
 #### Matching file fieldname
 
@@ -247,7 +248,7 @@ one_file_with_fieldname_includes:
      body:   one_file_with_fieldname_includes     
 ````
 
-#### File file filename
+#### Matching file filename
 
 Checks a request contains a file which filename equals/includes given value.
 
@@ -280,7 +281,7 @@ one_file_with_filename_includes:
     body:   one_file_with_filename_includes    
 ````
 
-#### File checksum
+#### Matching file checksum
 
 Checks a request contains a file which checksum equals given value (md5 on file content).
 
