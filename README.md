@@ -294,7 +294,7 @@ one_file_with_checksum:
       count: 1
       files:
         - fieldname: file
-          checksum:  toto
+          checksum:  049d9c8330df21e891e214681ec02b8f
   response:
     status: 200
     body:   one_file_with_checksum
