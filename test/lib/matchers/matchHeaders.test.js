@@ -1,6 +1,7 @@
 const test         = require('ava')
 const matchHeaders = require('../../../lib/matchers/matchHeaders')
 
+
 test('should return a score of 0 when undefined', t => {
     t.is(matchHeaders({}, {}), 0)
 })

@@ -1,38 +1,6 @@
-- request:
-    method: POST
-    url: /test/**
-    headers:
-      cache-control:
-        exists: true
-  response:
-    status: 201
-    body:   POST request
-
-- request:
+get_test:
+  request:
     method: GET
-    url: /test/**
-    headers:
-      accept: '*/*'
-      postman-token:
-        exists: true
+    url:    /test
   response:
-    body: postman token does not exists and accept all
-
-- request:
-    method: GET
-    url: /test/**
-    headers:
-      user-agent:
-        includes: Mozilla
-  response:
-    body: user-agent includes Mozilla
-
-- request:
-    method: '*'
-    url: /test/**
-    headers:
-      arbitrary:
-        exists: false
-  response:
-    body: arbitrary header does not exists
-
+    body: get_test

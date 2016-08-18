@@ -29,7 +29,7 @@ test('should not pass with invalid request method', t => {
         response: { body: 'test' },
     }
 
-    t.throws(mappingValidator.validate([mapping]).then(() => t.pass()), err => {
+    t.throws(mappingValidator.validate([mapping]), err => {
         t.regex(err, /mapping validation failed for "invalid"/)
         t.regex(err, /"method" must be one of/)
         return true
@@ -53,7 +53,7 @@ test('should not pass with invalid response status', t => {
         response: { status: 900, body: 'test' },
     }
 
-    t.throws(mappingValidator.validate([mapping]).then(() => t.pass()), err => {
+    t.throws(mappingValidator.validate([mapping]), err => {
         t.regex(err, /mapping validation failed for "invalid"/)
         t.regex(err, /"status" must be one of/)
         return true

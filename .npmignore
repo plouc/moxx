@@ -3,4 +3,5 @@
 /mappings
 /test
 /coverage
-.nyc_output
+/docs
+/.nyc_output
