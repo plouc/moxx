@@ -111,6 +111,7 @@ moxx --watch
 - [matching url](#matching-url)
 - [matching query](#matching-query)
 - [matching headers](#matching-headers)
+- [matching-files](#matching-files)
 - [scoring](#scoring)
 
 ### Matching http method
@@ -206,6 +207,96 @@ get_user_with_x-username_including_plouc:
     headers:
       x-username:
         includes: plouc
+```
+
+### Matching files
+
+**moxx** is able to check posted files, testing against file fieldname/filename/checksum.
+
+- [matching fieldname](#matching-file-fieldname)
+- [matching filename](#matching-file-filename)
+
+#### Matching file fieldname
+
+Checks a request contains a file which fieldname equals/includes given value.
+
+```yaml
+# curl -X POST -F "myfile=@$(pwd)/README.md" http://localhost:5000
+one_file_with_fieldname_myfile:
+  request:
+    method: POST
+    files:
+      count: 1
+      files:
+        - fieldname: myfile
+  response:
+     status: 200
+     body:   one_file_with_fieldname_myfile
+     
+# curl -X POST -F "includedfile=@$(pwd)/README.md" http://localhost:5000
+one_file_with_fieldname_includes:
+  request:
+    method: POST
+    files:
+      count: 1
+      files:
+        - fieldname:
+            includes: included
+  response:
+     status: 200
+     body:   one_file_with_fieldname_includes     
+````
+
+#### File file filename
+
+Checks a request contains a file which filename equals/includes given value.
+
+```yaml
+# curl -X POST -F "myfile=@$(pwd)/package.json" http://localhost:5000
+one_file_with_filename_packagejson:
+  request:
+    method: POST
+    files:
+      count: 1
+      files:
+        - fieldname: myfile
+          filename:  package.json
+  response:
+    status: 200
+    body:   one_file_with_filename_packagejson
+    
+# curl -X POST -F "myfile=@$(pwd)/LICENSE.md" http://localhost:5000
+one_file_with_filename_includes:
+  request:
+    method: POST
+    files:
+      count: 1
+      files:
+        - fieldname: myfile
+          filename:
+            includes: LICENSE
+  response:
+    status: 200
+    body:   one_file_with_filename_includes    
+````
+
+#### File checksum
+
+Checks a request contains a file which checksum equals given value (md5 on file content).
+
+```yaml
+# curl -X POST -F "file=@$(pwd)/test/fixtures/files/plouc.png" http://localhost:5000
+one_file_with_checksum:
+  request:
+    method: POST
+    files:
+      count: 1
+      files:
+        - fieldname: file
+          checksum:  toto
+  response:
+    status: 200
+    body:   one_file_with_checksum
 ```
 
 ### Scoring

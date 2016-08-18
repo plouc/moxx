@@ -1,6 +1,7 @@
 const test       = require('ava')
 const matchQuery = require('../../../lib/matchers/matchQuery')
 
+
 test('should return a score of 0 when undefined', t => {
     t.is(matchQuery({}, {}), 0)
 })

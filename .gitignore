@@ -1,8 +1,9 @@
-/mappings
-/files
-node_modules
 .idea
 .DS_Store
-coverage
-.nyc_output
+/mappings
+/files
+/docs
+/node_modules
+/coverage
+/.nyc_output
 npm-debug*

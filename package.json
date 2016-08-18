@@ -11,11 +11,12 @@
     "server"
   ],
   "scripts": {
-    "start": "nodemon bin/moxx -- --dir examples --watch",
+    "start": "nodemon bin/moxx -- --dir examples --watch --loglevel silly",
     "test": "nyc ava --verbose",
     "test-no-cover": "ava --verbose",
     "cover-report": "nyc report --reporter=lcov",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "doc": "jsdoc lib --readme README.md --configure .jsdoc.json",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "engines": {
@@ -24,6 +25,7 @@
   "author": "Raphaël Benitte (https://github.com/plouc)",
   "license": "MIT",
   "dependencies": {
+    "busboy": "0.2.13",
     "chokidar": "1.6.0",
     "columnify": "1.5.4",
     "commander": "2.9.0",
@@ -33,17 +35,27 @@
     "js-yaml": "3.6.1",
     "lodash": "4.15.0",
     "minimatch": "3.0.3",
-    "winston": "2.2.0"
+    "type-is": "1.6.13",
+    "winston": "2.2.0",
+    "xml2js": "0.4.17"
   },
   "devDependencies": {
     "ava": "0.16.0",
     "coveralls": "2.11.12",
+    "docdash": "0.4.0",
+    "form-data": "1.0.0-rc4",
+    "jsdoc": "3.4.0",
     "nodemon": "1.10.0",
     "nyc": "7.1.0",
     "semantic-release": "^4.3.5"
   },
   "bin": {
     "moxx": "./bin/moxx"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ]
   },
   "nyc": {
     "all": true,
